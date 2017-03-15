@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,18 +21,21 @@ import java.util.ArrayList;
  * Created by Sowa on 31.01.2017.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    ArrayList<Product> arrayList;
-    ListView lv;
+    ArrayList<Product> arrayList = new ArrayList<Product>();
+    ListView list;
+    ListAdapter adapter;
+    SearchView searchField;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        arrayList = new ArrayList<>();
-        lv = (ListView) findViewById(R.id.listView);
+
+        list = (ListView) findViewById(R.id.listView);
+        searchField = (SearchView) findViewById(R.id.search);
 
         runOnUiThread(new Runnable() {
             @Override
@@ -39,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
                 new ReadJSON().execute("http://www.alticennik.cba.pl/alticennik/cennik.json");
             }
         });
+
+        searchField.setOnQueryTextListener(this);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String query) {
+        adapter.getFilter().filter(query);
+        return false;
     }
 
     class ReadJSON extends AsyncTask<String, Integer, String> {
@@ -67,10 +84,10 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ListAdapter adapter = new ListAdapter(
+            adapter = new ListAdapter(
                     getApplicationContext(), R.layout.list_layout, arrayList
             );
-            lv.setAdapter(adapter);
+            list.setAdapter(adapter);
         }
     }
 

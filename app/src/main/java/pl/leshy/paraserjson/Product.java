@@ -52,4 +52,9 @@ public class Product {
         this.EAN = qEAN;
     }
 
+    @Override
+    public String toString() {
+        return this.nazwa;
+    }
+
 }
