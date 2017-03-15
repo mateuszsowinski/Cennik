@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AltiCennik</string>
+    <string name="app_label">Test</string>
+    <string name="Wyszukaj">wyszukaj</string>
+    <string name="Idź">go</string>
+    <string name="rsv_default_search_hint">Search</string>
+    <string name="action_settings">O programie</string>
+    <string name="menu_search">Menu</string>
+    <string name="search_label">szukaj</string>
+</resources>
