@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ParaserJSON.iml" filepath="$PROJECT_DIR$/ParaserJSON.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file:///mnt/dane/Work/SowaCennik/SowaCennik.iml" filepath="/mnt/dane/Work/SowaCennik/SowaCennik.iml" />
+      <module fileurl="file:///mnt/dane/Work/SowaCennik/app/app.iml" filepath="/mnt/dane/Work/SowaCennik/app/app.iml" />
     </modules>
   </component>
 </project>
